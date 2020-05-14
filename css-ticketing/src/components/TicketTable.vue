@@ -17,9 +17,13 @@
                         <th>Client Email</th>
                         <th>Issue</th>
                         <th>Model</th>
+                        <!-- only showing this table header if edit table is true -->
                         <th v-show="editTable">Delete</th>
                     </tr>
                     <!-- not sure why we beed a v-bind for loops -->
+                    <!-- looping over tickets to get each individual ticket -->
+                    <!-- binding data from tickets to props in the TableRow component -->
+                    <!-- when delete-ticket is emitted calling the ticketDeleted function -->
                     <TicketRow
                             v-for="ticket in tickets" v-bind:key="ticket.id"
                             v-bind:ticket="ticket"
@@ -34,9 +38,12 @@
 </template>
 
 <script>
+// importing the ticketrow component so we can use it as an element in this component
 import TicketRow from '@/components/TicketRow'
+
     export default {
         name: "TicketTable",
+        // defining our child components here
         components : { TicketRow },
         data(){
             return{
@@ -47,6 +54,7 @@ import TicketRow from '@/components/TicketRow'
             tickets: Array
         },
         methods: {
+            // emitting delete-ticket and ticket to parent component
             ticketDeleted(ticket){
                 this.$emit('delete-ticket',ticket)
             }

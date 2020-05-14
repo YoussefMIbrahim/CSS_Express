@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-
+    // creating a table called Ticket and adding columns to it
     let Ticket = sequelize.define('Ticket', {
         name: {
             type: DataTypes.STRING,

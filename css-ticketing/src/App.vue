@@ -24,6 +24,16 @@
 </template>
 
 <script>
+//todo add search methods from db name/email
+//todo enale editing the ticket in some way
+//todo make it look nice
+//todo make error messages blend in better
+//todo fix issue with bottom of the pages
+//todo add further validation
+//todo find a better way to do tabs
+//todo limit the number of tickets showing
+//todo add a sorty by method for the table
+//todo show the date created for the tickets
 import NewTicketForm from '@/components/NewTicketForm'
 import TicketTable from '@/components/TicketTable'
 import Validation from '@/components/Validation'
