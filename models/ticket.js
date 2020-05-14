@@ -2,17 +2,23 @@ module.exports = (sequelize, DataTypes) => {
 
     let Ticket = sequelize.define('Ticket', {
         name: {
-            type: DataTypes.STRING,  
+            type: DataTypes.STRING,
+            allowNull: false  
         }, email: {
             type: DataTypes.STRING,
+            allowNull: false
         }, clientName: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            allowNull: false
         }, clientEmail: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            allowNull: false
         }, issue: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            allowNull: false
         }, model: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            allowNull: false 
         }
     })
 

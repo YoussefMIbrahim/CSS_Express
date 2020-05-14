@@ -1,8 +1,5 @@
 <template>
     <div id="input-form">
-        <div class="alert alert-danger" v-show="errors.length > 0">
-            <li v-for="error in errors">{{error}}</li>
-        </div>
 
         <div class="card add-ticket m-2 p-2" id="form">
             <h4 class="card-title">Add new Ticket</h4>
@@ -37,7 +34,7 @@
                 <input id="pc-model" class="form-control" v-model.trim = "model">
             </div>
 
-            <button class="btn btn-primary" v-on:click.prevent="addTicket">Add</button>
+            <button class="btn btn-primary" v-on:click.prevent="addTicket()">Add</button>
         </div>
 
     </div>
@@ -58,17 +55,54 @@ export default {
         }
     },
     methods :{
+        // not sure whu this method didn't work
+        // validation(){
+        //     this.errors = []
+
+        //     if(!this.studentName){this.errors.push('Enter name')}
+        //     if(!this.studentEmail){this.errors.push('Enter email')}
+        //     if(!this.clientName){this.errors.push('Enter client name ')}
+        //     if(!this.clientEmail){this.errors.push('Enter client email')}
+        //     if(!this.issues){this.errors.push('Enter the issue')}
+        //     if(!this.model){this.errors.push('Enter the Model')}
+        //     this.$emit('test-name', this.errors)
+        // },
         addTicket(){
-            this.errors = []
+            // this.errors = []
             //insert validation here
 
-            let ticket = {name: this.studentName, email: this.studentEmail, clientName: this.clientName,
-            clientEmail: this.clientEmail, issue: this.issues, model: this.model}
+            // validation()
 
-            this.$emit('ticket-added', ticket)
+            this.errors = []
 
-            //clear fields here
-        }
+            if(!this.studentName){this.errors.push('Enter name')}
+            if(!this.studentEmail){this.errors.push('Enter email')}
+            if(!this.clientName){this.errors.push('Enter client name ')}
+            if(!this.clientEmail){this.errors.push('Enter client email')}
+            if(!this.issues){this.errors.push('Enter the issue')}
+            if(!this.model){this.errors.push('Enter the Model')}
+
+            this.$emit('test-name', this.errors)
+
+
+            if(this.errors.length == 0){
+                console.log('were in this place now');
+                
+                 let ticket = {name: this.studentName, email: this.studentEmail, clientName: this.clientName,
+                    clientEmail: this.clientEmail, issue: this.issues, model: this.model}
+
+                this.$emit('ticket-added', ticket)
+
+                this.studentName = ''
+                this.studentEmail = ''
+                this.clientName = ''
+                this.clientEmail = ''
+                this.issues = ''
+                this.model = ''
+                
+            }
+          
+        },
     }
 }
 </script>

@@ -1,37 +1,45 @@
 <template>
   <div id="app">
     <!-- insert some sort of image up here  a cat -->
+    <Validation
+    v-bind:errors="errors"
+    > </Validation>
     <h1 id="title">CSS ticketing app!</h1>
     <div id="button-container">
       <button v-on:click="tabSelected(1)" class="btn btn-secondary btn-edit">Add Ticket</button>
       <button v-on:click="tabSelected(2)" class="btn btn-secondary btn-edit">Show Ticket</button>
     </div>
     <!-- add a von that calls a function when it recieves the emit -->
-    <NewTicketForm v-on:ticket-added="ticketAdded" v-if="currentTab == 1"> </NewTicketForm>
+    <NewTicketForm 
+    v-on:ticket-added="ticketAdded" 
+    v-on:test-name="validationData"
+    v-if="currentTab == 1"
+    > </NewTicketForm>
     <TicketTable
     v-bind:tickets="tickets"
     v-on:delete-ticket="ticketDeleted"
     v-if="currentTab == 2"
     > </TicketTable>
-
-
   </div>
 </template>
 
 <script>
 import NewTicketForm from '@/components/NewTicketForm'
 import TicketTable from '@/components/TicketTable'
+import Validation from '@/components/Validation'
 
 export default {
   name: 'App',
   components: {
     NewTicketForm,
-    TicketTable
+    TicketTable,
+    Validation
   },
   data(){
     return{
       tickets: [],
-      currentTab: 1
+      currentTab: 1,
+      errors: []
     }
   },
   mounted(){
@@ -56,7 +64,11 @@ export default {
     },
     tabSelected(tab){
       this.currentTab = tab
+    },
+    validationData(errors){
+      this.errors = errors    
     }
+
   }
 }
 </script>

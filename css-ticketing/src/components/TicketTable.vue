@@ -19,9 +19,9 @@
                         <th>Model</th>
                         <th v-show="editTable">Delete</th>
                     </tr>
-                    <!-- not entriely sure wats happening here -->
+                    <!-- not sure why we beed a v-bind for loops -->
                     <TicketRow
-                            v-for="ticket in tickets" v-bind:key="ticket.name"
+                            v-for="ticket in tickets" v-bind:key="ticket.id"
                             v-bind:ticket="ticket"
                             v-bind:edit="editTable"
                             v-on:delete-ticket="ticketDeleted"

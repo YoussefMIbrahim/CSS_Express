@@ -1,11 +1,13 @@
 let express = require('express')
 let bodyParser = require('body-parser')
 let api_routes = require('./routes/api.js')
-// let path = require('path')
+let path = require('path')
 
 let app = express()
 
 app.use(bodyParser.json())
+
+app.use(express.static(path.join(__dirname, 'css-ticketing', 'dist')))
 
 app.use('/api', api_routes)
 
