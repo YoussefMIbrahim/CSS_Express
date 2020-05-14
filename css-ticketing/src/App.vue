@@ -1,16 +1,20 @@
 <template>
   <div id="app">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!-- insert some sort of image up here  a cat -->
+    <h1>CSS ticketing app! again...but with much less time...</h1>
+    <!-- add a von that calls a function when it recieves the emit -->
+    <NewTicketForm> </NewTicketForm>
+
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import NewTicketForm from '@/components/NewTicketForm'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    NewTicketForm
   }
 }
 </script>
