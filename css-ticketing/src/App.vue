@@ -4,7 +4,7 @@
     <Validation
     v-bind:errors="errors"
     > </Validation>
-    <h1 id="title">CSS ticketing app!</h1>
+    <h1 id="title">CSS ticketing app!2.0 now uglier</h1>
     <div id="button-container">
       <button v-on:click="tabSelected(1)" class="btn btn-secondary btn-edit">Add Ticket</button>
       <button v-on:click="tabSelected(2)" class="btn btn-secondary btn-edit">Show Ticket</button>
