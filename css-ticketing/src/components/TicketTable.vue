@@ -1,16 +1,15 @@
 <template>
-    <div>
-        <div class="card ticket-list m-2 p-2">
+    <div >
+        <div class="card ticket-list m-2 p-2" id="table-edit">
             <h4 class="card-title">Tickets</h4>
 
-            <div class="edit-table-toggle form-check">
+            <div class="edit-table-toggle form-check" >
                 <input type="checkbox" id="edit-table" class="form-check-input" v-model="editTable">
                 <label for="edit-table" class="form-check-label">Edit table?</label>
             </div>
 
             <div id="ticket-table">
                 <table class="table">
-                    <!--                    creating a table with these columns-->
                     <tr>
                         <th>Name</th>
                         <th>Email</th>
@@ -20,13 +19,13 @@
                         <th>Model</th>
                         <th v-show="editTable">Delete</th>
                     </tr>
-
-                    <StudentRow
+                    <!-- not entriely sure wats happening here -->
+                    <TicketRow
                             v-for="ticket in tickets" v-bind:key="ticket.name"
                             v-bind:ticket="ticket"
                             v-bind:edit="editTable"
                             v-on:delete-ticket="ticketDeleted"
-                    ></StudentRow>
+                    ></TicketRow>
 
                 </table>
             </div>
@@ -57,5 +56,8 @@ import TicketRow from '@/components/TicketRow'
 
 <style scoped>
 
+#table-edit{
+    background-color: #FF9900;
+}
 
 </style>

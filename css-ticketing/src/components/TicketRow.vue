@@ -3,10 +3,10 @@
     <tr>
         <td>{{ticket.name}}</td>
         <td>{{ticket.email}}</td>
-        <td>{{ticket.cName}}</td>
-        <td>{{ticket.cEmail}}</td>
-        <td>{{ticket.cIssues}}</td>
-        <td>{{ticket.cModel}}</td>
+        <td>{{ticket.clientName}}</td>
+        <td>{{ticket.clientEmail}}</td>
+        <td>{{ticket.issue}}</td>
+        <td>{{ticket.model}}</td>
         <td v-show="edit">
             <img class="delete-icon" v-on:click="deleteTicket(ticket)" src="@/assets/delete.png">
         </td>
@@ -23,17 +23,16 @@
         },
         methods: {
             deleteTicket(ticket){
-                if (confirm(`Delete ${student.name}?`)) {
+                if (confirm(`Delete ${ticket.name}?`)) {
                     this.$emit('delete-ticket', ticket)
                 }
             }
         }
     }
-
 </script>
 
 <style >
-    #student-table {
+    table {
         max-height: 500px;
         overflow: scroll;
     }

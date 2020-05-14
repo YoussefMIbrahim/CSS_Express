@@ -25,5 +25,10 @@ router.post('/tickets', function(req,res,next) {
         return next(err)
     })
 })
-
+router.delete('/tickets/:id', function(req,res,next){
+    Ticket.destroy({where: {id: req.params.id}})
+    .then(rowModified => {
+        return res.send('ok')
+    }).catch(err => next(err))
+})
 module.exports = router

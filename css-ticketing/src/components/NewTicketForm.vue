@@ -1,10 +1,10 @@
 <template>
-    <div>
+    <div id="input-form">
         <div class="alert alert-danger" v-show="errors.length > 0">
             <li v-for="error in errors">{{error}}</li>
         </div>
 
-        <div class="card add-ticket m-2 p-2">
+        <div class="card add-ticket m-2 p-2" id="form">
             <h4 class="card-title">Add new Ticket</h4>
 
             <div class="form-group">
@@ -62,8 +62,8 @@ export default {
             this.errors = []
             //insert validation here
 
-            let ticket = {name: this.studentName, email: this.studentEmail, cName: this.clientName,
-            cEmail: this.clientEmail, cIssues: this.issues, cModel: this.model}
+            let ticket = {name: this.studentName, email: this.studentEmail, clientName: this.clientName,
+            clientEmail: this.clientEmail, issue: this.issues, model: this.model}
 
             this.$emit('ticket-added', ticket)
 
@@ -72,3 +72,17 @@ export default {
     }
 }
 </script>
+
+<style>
+#form{
+    background-color:  #FF9900;
+    margin-block: 50px;
+}
+.card-title{
+    color: #6599FF;
+}
+/* #input-form{
+    margin-bottom: 50px;
+    background-color: #FFDE00;
+} */
+</style>
