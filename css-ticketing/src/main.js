@@ -4,8 +4,11 @@ import BootstrapVue from 'bootstrap-vue'
 
 // import TicketAPIServies from '@/services/TicketServices'
 
-
+Vue.use(BootstrapVue)
 // Vue.prototype.$ticket_api = TicketAPIServies
+
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 Vue.config.productionTip = false
 

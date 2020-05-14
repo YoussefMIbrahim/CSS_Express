@@ -62,7 +62,7 @@ export default {
             this.errors = []
             //insert validation here
 
-            let ticket = {name: this.studentName, email: this.studentEmail, cname: this.clientName,
+            let ticket = {name: this.studentName, email: this.studentEmail, cName: this.clientName,
             cEmail: this.clientEmail, cIssues: this.issues, cModel: this.model}
 
             this.$emit('ticket-added', ticket)
